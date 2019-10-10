@@ -1,27 +1,25 @@
 # Footbook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+Footbook is a simple application that allows you to navigate the football leagues and discover the main players.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Generate the documentation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm run generate:documentation` to build the doc, you can use the superb `(sudo) npm i -g http-server` and read the doc with `http-server documentation`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Headless version for running tests can be executed with `npm run test:headless`.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Headless version for running end-to-end tests can be executed with `npm run e2e:headless`.

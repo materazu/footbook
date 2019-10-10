@@ -24,16 +24,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'footbook'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('footbook');
-  });
-
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('footbook app is running!');
+    expect(compiled.querySelector('.title').textContent).toContain('Footbook');
+    expect(compiled.querySelector('.subtitle').textContent).toContain('Discover champions.');
   });
 });

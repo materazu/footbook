@@ -10,7 +10,12 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('footbook app is running!');
+    expect(page.getTitleText()).toEqual('Footbook');
+  });
+
+  it('should display subtitle', () => {
+    page.navigateTo();
+    expect(page.getSubTitleText()).toEqual('Discover champions.');
   });
 
   afterEach(async () => {
