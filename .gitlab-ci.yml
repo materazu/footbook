@@ -1,0 +1,62 @@
+app:
+  stage: build
+  image: trion/ng-cli:latest
+  before_script:
+    - npm ci
+  script:
+    - npm run build:prod
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - dist/
+  tags:
+    - bluerunner
+
+documentation:
+  stage: build
+  image: trion/ng-cli:latest
+  before_script:
+    - npm ci
+  script:
+    - npm run generate:documentation
+  artifacts:
+    paths:
+      - documentation/
+  tags:
+    - bluerunner
+
+karma:
+  stage: test
+  image: trion/ng-cli-karma:latest
+  before_script:
+    - npm ci
+  allow_failure: false
+  script:
+    - npm run test:headless
+  coverage: '/Lines \W+: (\d+\.\d+)%.*/'
+  artifacts:
+    paths:
+      - coverage/
+  tags:
+    - bluerunner
+
+e2e:
+  stage: test
+  image: trion/ng-cli-e2e:latest
+  before_script:
+    - npm ci
+  allow_failure: false
+  script:
+    - npm run e2e:headless
+  tags:
+    - bluerunner
+
+lint:
+  stage: test
+  image: trion/ng-cli:latest
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+  tags:
+    - bluerunner
