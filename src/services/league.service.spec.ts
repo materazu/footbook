@@ -7,6 +7,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { LeagueService } from './league.service';
 import { environment } from 'src/environments/environment';
 
+/* tslint:disable */
 const fakeResponse = {
   countrys: [
     {
@@ -191,6 +192,7 @@ const fakeResponse = {
     }
   ]
 };
+/* tslint:enable */
 
 describe('LeagueService', () => {
   beforeEach(() => {
