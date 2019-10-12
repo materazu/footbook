@@ -6,10 +6,13 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+# Compodoc
+/documentation
+# Sonar
+.scannerwork
 
 # dependencies
 /node_modules
-/documentation
 
 # profiling files
 chrome-profiler-events*.json

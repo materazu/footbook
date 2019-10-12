@@ -1,6 +1,0 @@
-projectKey=footbook
-serverUrl=https://sonar.blueanchor.io
-serverVersion=7.9.1.27448
-dashboardUrl=https://sonar.blueanchor.io/dashboard?id=footbook
-ceTaskId=AW2_Tknt7oP0jt-T5gNh
-ceTaskUrl=https://sonar.blueanchor.io/api/ce/task?id=AW2_Tknt7oP0jt-T5gNh
