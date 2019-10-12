@@ -43,7 +43,8 @@ export class LeagueService implements ApiContract {
    */
   getLeagues() {
     let params = new HttpParams();
-    params = params.append('c', environment.country);
+    /* if we need to scope to a country*/
+    // params = params.append('c', environment.country);
     params = params.append('s', environment.sportScope);
 
     this.httpClient
@@ -54,7 +55,7 @@ export class LeagueService implements ApiContract {
         this.leagues = leagues.map(league => {
           return {
             id: parseInt(league.idLeague, 0),
-            name: league.strLeague.replace('French', '')
+            name: league.strLeague
           };
         });
 
