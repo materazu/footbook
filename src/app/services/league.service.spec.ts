@@ -217,7 +217,7 @@ describe('LeagueService', () => {
 
         leagueService.getLeagues();
 
-        const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?c=${environment.country}&s=${environment.sportScope}`);
+        const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?s=${environment.sportScope}`);
         expect(req.request.method).toEqual('GET');
 
         req.flush(fakeResponse);
@@ -236,7 +236,7 @@ describe('LeagueService', () => {
 
         leagueService.getLeagues();
 
-        const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?c=${environment.country}&s=${environment.sportScope}`);
+        const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?s=${environment.sportScope}`);
         req.flush(fakeResponse);
       })
     )
