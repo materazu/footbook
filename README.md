@@ -23,3 +23,7 @@ Headless version for running tests can be executed with `npm run test:headless`.
 
 Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Headless version for running end-to-end tests can be executed with `npm run e2e:headless`.
+
+## Testing the ci
+This project run under gitlab-ci and chain all test, lint and build stages. It is recommended to run locally `npm run before:push` before pushing on master.
+It will emulate the pipeline and make sure all is ok and pipeline will not fail. 
