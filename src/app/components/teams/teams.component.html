@@ -1,0 +1,7 @@
+<section class="teams-container columns is-mobile is-multiline" *ngIf="teams.length">
+  <div class="column is-half" *ngFor="let team of teams">
+    <app-team
+      [team]="team">
+    </app-team>
+  </div>
+</section>

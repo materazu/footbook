@@ -1,0 +1,26 @@
+<section class="ng-autocomplete ng-autocomplete-container is-mobile columns is-centered" *ngIf="leagues.length">
+  <ng-autocomplete
+    [data]="leagues"
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate"
+    searchKeyword="name"
+    (selected)='leagueSelected($event)'
+    class="column"
+    placeHolder="Choisir un championnat"
+  >
+  </ng-autocomplete>
+
+  <ng-template
+    #itemTemplate
+    let-item
+  >
+    <a [innerHTML]="item.name"></a>
+  </ng-template>
+
+  <ng-template
+    #notFoundTemplate
+    let-notFound
+  >
+    <div>Aucun résultat</div>
+  </ng-template>
+</section>

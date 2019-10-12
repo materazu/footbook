@@ -5,9 +5,11 @@ import {
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 import { AppComponent } from './app.component';
 
-import { LeagueService } from 'src/services/league.service';
+import { LeagueService } from 'src/app/services/league.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -42,5 +44,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.title').textContent).toContain('Footbook');
     expect(compiled.querySelector('.subtitle').textContent).toContain('Discover champions.');
   });
-
 });

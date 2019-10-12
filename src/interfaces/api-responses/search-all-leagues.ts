@@ -1,3 +1,8 @@
 export interface SearchAllLeagues {
-  countrys: [{idLeague: string, strLeague: string}];
+  countrys: [
+    {
+      idLeague: string,
+      strLeague: string
+    }
+  ];
 }

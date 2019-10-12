@@ -2,16 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SearchLeagueComponent } from './components/search-league/search-league.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    SearchLeagueComponent,
+    TeamsComponent,
+    TeamComponent,
   ],
   imports: [
     AppRoutingModule,
+    AutocompleteLibModule,
     BrowserModule,
     HttpClientModule,
   ],

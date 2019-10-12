@@ -1,0 +1,16 @@
+<div
+  class="card has-text-centered"
+  *ngIf="team"
+>
+  <figure class="image is-128x128 ">
+    <img [src]="team.badge" alt="Placeholder image">
+  </figure>
+
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content has-text-centered">
+        <p class="subtitle is-6">{{ team.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

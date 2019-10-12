@@ -1,4 +1,7 @@
-import { Injectable } from '@angular/core';
+import {
+  EventEmitter,
+  Injectable,
+} from '@angular/core';
 import {
   HttpClient,
   HttpParams,
@@ -15,8 +18,13 @@ import { environment } from 'src/environments/environment';
 /**
  * Get leagues and provide a way to find them
  */
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class LeagueService implements ApiContract {
+  leaguesReadyEvent = new EventEmitter();
+  leagueSelectedEvent = new EventEmitter();
+
   endPoint: string;
   scope = 'search_all_leagues.php';
   leagues: League[];
@@ -46,10 +54,21 @@ export class LeagueService implements ApiContract {
         this.leagues = leagues.map(league => {
           return {
             id: parseInt(league.idLeague, 0),
-            name: league.strLeague
+            name: league.strLeague.replace('French', '')
           };
         });
+
+        this.leaguesReadyEvent.emit(this.leagues);
       })
     ;
+  }
+
+  /**
+   * Select a league and dispatch with an event
+   *
+   * @param league selected league to manage
+   */
+  selectLeague(league: League) {
+    this.leagueSelectedEvent.emit(league);
   }
 }

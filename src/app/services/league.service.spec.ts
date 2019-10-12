@@ -5,6 +5,7 @@ import {
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { LeagueService } from './league.service';
+
 import { environment } from 'src/environments/environment';
 
 /* tslint:disable */
@@ -225,17 +226,32 @@ describe('LeagueService', () => {
   ;
 
   it('expects service to fetch data and build the data with expected format',
-  inject([HttpTestingController, LeagueService],
-    (httpMock: HttpTestingController, leagueService: LeagueService) => {
+    inject([HttpTestingController, LeagueService],
+      (httpMock: HttpTestingController, leagueService: LeagueService) => {
+        leagueService.leaguesReadyEvent.subscribe(leagues => {
+          expect(leagues.length).toBe(4);
+          expect(leagues[0].name).toBe('Coupe de France');
+          expect(leagues[0].id).toBe(4484);
+        });
 
-      leagueService.getLeagues();
+        leagueService.getLeagues();
 
-      const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?c=${environment.country}&s=${environment.sportScope}`);
-      req.flush(fakeResponse);
+        const req = httpMock.expectOne(`${environment.apiUrl}/search_all_leagues.php?c=${environment.country}&s=${environment.sportScope}`);
+        req.flush(fakeResponse);
+      })
+    )
+  ;
 
-      expect(leagueService.leagues.length).toBe(4);
-      expect(leagueService.leagues[0].name).toBe('Coupe de France');
-      expect(leagueService.leagues[0].id).toBe(4484);
+  it('should dispatch a league after selection',
+  inject([LeagueService],
+    (leagueService: LeagueService) => {
+      leagueService.leagueSelectedEvent.subscribe(result => {
+        expect(result).toEqual(league);
+      });
+
+      const league = {id: 1234, name: 'test'};
+
+      leagueService.selectLeague(league);
     })
   )
 ;
