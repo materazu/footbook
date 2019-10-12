@@ -73,17 +73,6 @@ sonar:
     - npm ci
     - npm install -g sonarqube-scanner
   script:
-    - >
-      sonar-scanner
-      -Dsonar.projectKey=footbook
-      -Dsonar.host.url=https://sonar.blueanchor.io
-      -Dsonar.login=b501e16a3368551857fe80f0dd97d9321323d28e
-      -Dsonar.typescript.lcov.reportPaths=coverage/lcov/lcov.info
-      -Dsonar.sourceEncoding=UTF-8
-      -Dsonar.sources=src/app
-      -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts
-      -Dsonar.tests=src/app
-      -Dsonar.test.inclusions=**/*.spec.ts
-      -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
+    - sonar-scanner
   tags:
     - bluerunner
