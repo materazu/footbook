@@ -57,7 +57,7 @@ e2e:
     - bluerunner
 
 lint:
-  stage: lint
+  stage: analysis
   image: trion/ng-cli:latest
   before_script:
     - npm ci
