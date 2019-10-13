@@ -230,8 +230,9 @@ describe('LeagueService', () => {
       (httpMock: HttpTestingController, leagueService: LeagueService) => {
         leagueService.leaguesReadyEvent.subscribe(leagues => {
           expect(leagues.length).toBe(4);
-          expect(leagues[0].name).toBe('Coupe de France');
-          expect(leagues[0].id).toBe(4484);
+          const league = leagues[0];
+          expect(league.id).toBe(4484);
+          expect(league.name).toBe('Coupe de France');
         });
 
         leagueService.getLeagues();

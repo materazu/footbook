@@ -1089,9 +1089,10 @@ describe('TeamService', () => {
 
         teamService.getTeams(4334).subscribe(teams => {
           expect(teams.length).toBe(20);
-          expect(teams[0].name).toBe('Amiens');
-          expect(teams[0].id).toBe(135658);
-          expect(teams[0].badge).toBe('https://www.thesportsdb.com/images/media/team/badge/yvxwwq1471876116.png');
+          const team = teams[0];
+          expect(team.id).toBe(135658);
+          expect(team.name).toBe('Amiens');
+          expect(team.badge).toBe('https://www.thesportsdb.com/images/media/team/badge/yvxwwq1471876116.png');
         });
 
         const req = httpMock.expectOne(`${environment.apiUrl}/lookup_all_teams.php?id=4334`);

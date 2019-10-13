@@ -17,7 +17,7 @@ import { Team } from 'src/interfaces/models/team';
   template: '<app-team [team]="team"></app-team>'
 })
 class TestHostComponent {
-  private team: Team = {id: 1111, name: 'team1', badge: ''};
+  team: Team = {id: 1111, name: 'team1', badge: ''};
 
   setTeam(team: Team) {
     this.team = team;
