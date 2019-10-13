@@ -770,4 +770,17 @@ describe('TeamMemberService', () => {
       })
     )
   ;
+
+  it('expects service to fetch empty data and build the data with expected format',
+  inject([HttpTestingController, TeamMemberService],
+    (httpMock: HttpTestingController, teamMemberService: TeamMemberService) => {
+      teamMemberService.getTeamMembers(4334).subscribe(teams => {
+        expect(teams.length).toBe(0);
+      });
+
+      const req = httpMock.expectOne(`${environment.apiUrl}/lookup_all_players.php?id=4334`);
+      req.flush({ player: null });
+    })
+  )
+;
 });
