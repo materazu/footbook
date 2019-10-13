@@ -41,17 +41,12 @@ describe('TeamComponent', () => {
   });
 
   it('should show team name by input', () => {
-    testHostFixture = TestBed.createComponent(TestHostComponent);
-    testHostComponent = testHostFixture.componentInstance;
-    testHostFixture.detectChanges();
     const compiled = testHostFixture.debugElement.nativeElement;
 
     expect(compiled.querySelector('.team-name').innerText).toEqual('team1');
   });
 
   it('should show different team name, at change of the input', () => {
-    testHostFixture = TestBed.createComponent(TestHostComponent);
-    testHostComponent = testHostFixture.componentInstance;
     testHostComponent.setTeam({id: 2222, name: 'team2', badge: ''});
     testHostFixture.detectChanges();
     const compiled = testHostFixture.debugElement.nativeElement;

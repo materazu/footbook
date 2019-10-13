@@ -46,8 +46,6 @@ describe('TeamsComponent', () => {
     inject([TeamService, LeagueService],
       (teamService: TeamService, leagueService: LeagueService) => {
         spyOn(teamService, 'getTeams').and.returnValue(of([{id: 1111, name: 'test', badge: 'test'}]));
-        fixture = TestBed.createComponent(TeamsComponent);
-        fixture.detectChanges();
 
         leagueService.selectLeague({id: 4401, name: 'test'});
 
