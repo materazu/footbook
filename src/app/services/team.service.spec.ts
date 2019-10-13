@@ -2,7 +2,10 @@ import {
   TestBed,
   inject,
 } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 
 import { TeamService } from './team.service';
 

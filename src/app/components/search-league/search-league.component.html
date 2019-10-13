@@ -5,13 +5,13 @@
 >
   <ng-autocomplete
     [data]="leagues"
+    [initialValue]="initialValue"
     [itemTemplate]="itemTemplate"
     [notFoundTemplate]="notFoundTemplate"
-    [initialValue]="initialValue"
     (selected)='leagueSelected($event)'
-    searchKeyword="name"
     class="column"
     placeHolder="Search by league"
+    searchKeyword="name"
   >
   </ng-autocomplete>
 

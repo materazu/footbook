@@ -2,8 +2,8 @@ import {
   TestBed,
   inject,
 } from '@angular/core/testing';
-import { ActivatedRouteSnapshot } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ActivatedRouteSnapshot } from '@angular/router';
 
 import { TeamMembersResolver } from './team-member.resolver';
 

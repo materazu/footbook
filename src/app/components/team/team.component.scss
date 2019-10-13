@@ -1,8 +1,8 @@
 .card {
-  height: 100%;
   background: rgba(255, 255, 255, 0.8);
-  transition: all 0.2s ease;
   cursor: pointer;
+  height: 100%;
+  transition: all 0.2s ease;
 
   &:hover {
     box-shadow: 0 5px 7px rgba(10,10,10,0.3), 0 0 0 1px rgba(10,10,10,0.1);
