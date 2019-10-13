@@ -1,12 +1,12 @@
 .ng-autocomplete-container {
-  width: 100%;
   margin-left: 0;
+  width: 100%;
 }
 
 .fixedToTop {
-  position: fixed;
+  background: white;
   padding-top: 15px;
+  position: fixed;
   top: 0;
   z-index: 999;
-  background: white;
 }

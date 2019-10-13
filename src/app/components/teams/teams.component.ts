@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
-import { Team } from 'src/interfaces/models/team';
 import { LeagueService } from 'src/app/services/league.service';
 import { TeamService } from 'src/app/services/team.service';
+
 import { League } from 'src/interfaces/models/league';
+import { Team } from 'src/interfaces/models/team';
 
 @Component({
   selector: 'app-teams',
