@@ -1,7 +1,7 @@
 stages:
-  - analysis
-  - test
   - build
+  - test
+  - analysis
   - deploy
 
 app:
@@ -15,6 +15,7 @@ app:
     expire_in: 1 day
     paths:
       - dist/
+      - node_modules/
   tags:
     - bluerunner
 
