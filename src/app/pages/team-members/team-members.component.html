@@ -1,0 +1,20 @@
+<section
+  class="column is-mobile"
+  *ngIf="teamMembers && !teamMembers.length"
+>
+  <div class="notification is-primary">
+    No player found for this team, please choosing another one.
+  </div>
+</section>
+
+<section
+  *ngIf="teamMembers && teamMembers.length"
+  class="team-members-container columns is-mobile is-multiline"
+>
+  <div
+    *ngFor="let member of teamMembers"
+    class="column is-full"
+  >
+    <app-team-member [member]="member"></app-team-member>
+  </div>
+</section>

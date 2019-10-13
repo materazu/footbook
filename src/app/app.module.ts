@@ -11,7 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchLeagueComponent } from './components/search-league/search-league.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamComponent } from './components/team/team.component';
-import { TeamMembersComponent } from './components/team-members/team-members.component';
+import { TeamMembersComponent } from './pages/team-members/team-members.component';
 import { TeamMemberComponent } from './components/team-member/team-member.component';
 
 @NgModule({

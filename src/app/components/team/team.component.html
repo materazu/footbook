@@ -1,6 +1,7 @@
 <div
-  class="card has-text-centered"
   *ngIf="team"
+  (click)="loadTeamMembers(team.id)"
+  class="card has-text-centered"
 >
   <figure class="image is-128x128">
     <img

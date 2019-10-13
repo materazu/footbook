@@ -1,1 +1,34 @@
-<p>team-member works!</p>
+<div
+  *ngIf="member"
+  class="card has-text-centered"
+>
+  <figure class="image is-128x128">
+    <img
+      [src]="member.picture || 'https://www.alliancerehabmed.com/wp-content/uploads/icon-avatar-default.png'"
+      alt="Placeholder image"
+      class="is-rounded"
+    >
+  </figure>
+
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="subtitle is-9 member-name">
+          <strong [innerHTML]="member.name"></strong>
+        </p>
+        <p class="subtitle is-6 member-position">
+          <span [innerHTML]="member.position"></span>
+        </p>
+        <p class="subtitle is-6 member-birth-date">
+          Birth date: <span [innerHTML]="member.birthDate | date:'yyyy/MM/dd'"></span>
+        </p>
+        <p
+          *ngIf="member.price"
+          class="subtitle is-6 member-price"
+        >
+          Price: <span [innerHTML]="member.price"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

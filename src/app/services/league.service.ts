@@ -26,7 +26,8 @@ export class LeagueService implements ApiContract {
   leagueSelectedEvent = new EventEmitter();
 
   endPoint: string;
-  leagues: League[];
+  leagues: League[] = [];
+  selectedLeague: League;
   scope = 'search_all_leagues.php';
 
   /**
@@ -70,6 +71,7 @@ export class LeagueService implements ApiContract {
    * @param league selected league to manage
    */
   selectLeague(league: League) {
+    this.selectedLeague = league;
     this.leagueSelectedEvent.emit(league);
   }
 }

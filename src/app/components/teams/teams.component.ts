@@ -22,6 +22,10 @@ export class TeamsComponent {
     private leagueService: LeagueService,
     private teamService: TeamService,
   ) {
+    if (this.teamService.teams) {
+      this.teams = this.teamService.teams;
+    }
+
     this.leagueService.leagueSelectedEvent.subscribe((league: League) => {
       this.getAllTeamsForLeague(league.id);
     });
@@ -35,6 +39,7 @@ export class TeamsComponent {
   getAllTeamsForLeague(leagueId: number) {
     this.teamService.getTeams(leagueId).subscribe(teams => {
       this.teams = teams;
+      this.teamService.teams = teams;
     });
   }
 }

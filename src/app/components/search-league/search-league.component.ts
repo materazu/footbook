@@ -13,27 +13,34 @@ import { League } from 'src/interfaces/models/league';
   styleUrls: ['./search-league.component.scss']
 })
 export class SearchLeagueComponent implements OnInit {
-  leagues: League[] = [];
+  leagues: League[];
   sticky: boolean;
+  initialValue;
 
   /**
    * @param leagueService Service to manage all Leagues
    */
   constructor(
     private leagueService: LeagueService,
-  ) {
+  ) {}
+
+  /**
+   * Prepare the component
+   */
+  ngOnInit() {
+    this.leagues = this.leagueService.leagues;
+
     this.leagueService
       .leaguesReadyEvent
       .subscribe((leagues: League[]) => {
         this.leagues = leagues;
       })
     ;
-  }
 
-  /**
-   * Prepare the component
-   */
-  ngOnInit() {
+    if (this.leagueService.selectedLeague) {
+      this.initialValue = this.leagueService.selectedLeague;
+    }
+
     this.addObserverForSearchInput();
   }
 

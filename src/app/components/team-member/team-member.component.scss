@@ -1,0 +1,26 @@
+.card {
+  align-items: center;
+  display: flex;
+  justify-content: left;
+  padding-left: 30px;
+
+  .is-9 {
+    margin-bottom: 10px;
+  }
+
+  .is-6 {
+    margin-bottom: 10px;
+
+    &.member-position {
+      font-weight: 200;
+    }
+
+    &.member-birth-date, &.member-price {
+      font-size: 0.8rem;
+    }
+
+    &.member-price {
+      font-weight: 600;
+    }
+  }
+}
