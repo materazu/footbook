@@ -762,7 +762,7 @@ describe('TeamMemberService', () => {
           expect(member.price).toBe('Signed');
           expect(member.position).toBe('Forward');
           expect(member.picture).toBeNull();
-          expect(member.birthDate.toString()).toBe('Tue Jan 05 1988 01:00:00 GMT+0100 (Central European Standard Time)');
+          expect(member.birthDate.toISOString()).toBe('1988-01-05T00:00:00.000Z');
         });
 
         const req = httpMock.expectOne(`${environment.apiUrl}/lookup_all_players.php?id=4334`);
