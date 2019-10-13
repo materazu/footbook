@@ -1,8 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  inject,
+  TestBed,
+} from '@angular/core/testing';
 
-import { TeamsComponent } from './teams.component';
-import { TeamComponent } from '../team/team.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+import { of } from 'rxjs';
+
+import { TeamComponent } from '../team/team.component';
+import { TeamsComponent } from './teams.component';
+
+import { LeagueService } from 'src/app/services/league.service';
+import { TeamService } from 'src/app/services/team.service';
 
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
@@ -30,4 +41,20 @@ describe('TeamsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should get the teams at selection',
+    inject([TeamService, LeagueService],
+      (teamService: TeamService, leagueService: LeagueService) => {
+        spyOn(teamService, 'getTeams').and.returnValue(of([{id: 1111, name: 'test', badge: 'test'}]));
+        const fixture = TestBed.createComponent(TeamsComponent);
+        fixture.detectChanges();
+
+        leagueService.selectLeague({id: 4401, name: 'test'});
+
+        setTimeout(_ => {
+          expect(component.teams.length).toBe(1);
+        }, 1000);
+      })
+    )
+  ;
 });

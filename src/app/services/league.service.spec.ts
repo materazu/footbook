@@ -243,16 +243,16 @@ describe('LeagueService', () => {
   ;
 
   it('should dispatch a league after selection',
-  inject([LeagueService],
-    (leagueService: LeagueService) => {
-      leagueService.leagueSelectedEvent.subscribe(result => {
-        expect(result).toEqual(league);
-      });
+    inject([LeagueService],
+      (leagueService: LeagueService) => {
+        leagueService.leagueSelectedEvent.subscribe(result => {
+          expect(result).toEqual(league);
+        });
 
-      const league = {id: 1234, name: 'test'};
+        const league = {id: 1234, name: 'test'};
 
-      leagueService.selectLeague(league);
-    })
-  )
-;
+        leagueService.selectLeague(league);
+      })
+    )
+  ;
 });

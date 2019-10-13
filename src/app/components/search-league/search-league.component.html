@@ -1,15 +1,14 @@
 <section
+  *ngIf="leagues.length"
   [ngClass]="{fixedToTop: sticky}"
   class="ng-autocomplete ng-autocomplete-container is-mobile columns is-centered"
-  *ngIf="leagues.length"
 >
   <ng-autocomplete
-    #searchField
     [data]="leagues"
     [itemTemplate]="itemTemplate"
     [notFoundTemplate]="notFoundTemplate"
-    searchKeyword="name"
     (selected)='leagueSelected($event)'
+    searchKeyword="name"
     class="column"
     placeHolder="Search by league"
   >

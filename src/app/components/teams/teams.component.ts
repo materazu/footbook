@@ -13,6 +13,10 @@ import { League } from 'src/interfaces/models/league';
 export class TeamsComponent {
   teams: Team[] = [];
 
+  /**
+   * @param leagueService Service to manage all Leagues
+   * @param teamService Service to manage all Teams
+   */
   constructor(
     private leagueService: LeagueService,
     private teamService: TeamService,

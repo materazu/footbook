@@ -11,7 +11,7 @@ export class AppComponent {
   /**
    * Bootstrap component, create the global context of the app
    *
-   * @param leagueService Service to manage all Legues
+   * @param leagueService Service to manage all Leagues
    */
   constructor(
     private leagueService: LeagueService,
