@@ -22,15 +22,35 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LeagueService implements ApiContract {
+  /**
+   * Event called when array of leagues response from api is ready
+   */
   leaguesReadyEvent = new EventEmitter();
+  /**
+   * Event called when a league is selected by a user
+   */
   leagueSelectedEvent = new EventEmitter();
 
+  /**
+   * Endpoint api url
+   */
   endPoint: string;
+  /**
+   * Leagues array
+   */
   leagues: League[] = [];
+  /**
+   * League selected by user
+   */
   selectedLeague: League;
+  /**
+   * Scope of service
+   */
   scope = 'search_all_leagues.php';
 
   /**
+   * Service injections
+   *
    * @param httpClient Http client from Angular
    */
   constructor(

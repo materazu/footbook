@@ -26,10 +26,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TeamMemberService implements ApiContract {
+  /**
+   * Endpoint api url
+   */
   endPoint: string;
+  /**
+   * Scope of service
+   */
   scope = 'lookup_all_players.php';
 
   /**
+   * Service injections
+   *
    * @param httpClient Http client from Angular
    */
   constructor(

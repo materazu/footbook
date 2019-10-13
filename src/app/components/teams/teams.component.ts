@@ -6,15 +6,25 @@ import { TeamService } from 'src/app/services/team.service';
 import { League } from 'src/interfaces/models/league';
 import { Team } from 'src/interfaces/models/team';
 
+/**
+ * Component for iterating teams
+ */
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent {
+  /**
+   * Teams array
+   */
   teams: Team[] = null;
 
   /**
+   * Component injections
+   * Refresh teams at startup from TeamService
+   * Get all teams when a league is selected by user
+   *
    * @param leagueService Service to manage all Leagues
    * @param teamService Service to manage all Teams
    */

@@ -7,17 +7,31 @@ import { LeagueService } from 'src/app/services/league.service';
 
 import { League } from 'src/interfaces/models/league';
 
+/**
+ * Search input with autocomplete to select a league
+ */
 @Component({
   selector: 'app-search-league',
   templateUrl: './search-league.component.html',
   styleUrls: ['./search-league.component.scss']
 })
 export class SearchLeagueComponent implements OnInit {
+  /**
+   * Leagues array
+   */
   leagues: League[];
+  /**
+   * Sticky status for the input
+   */
   sticky: boolean;
+  /**
+   * Initial input value, selected at back action
+   */
   initialValue;
 
   /**
+   * Component injections
+   *
    * @param leagueService Service to manage all Leagues
    */
   constructor(
