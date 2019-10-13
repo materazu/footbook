@@ -1074,7 +1074,6 @@ describe('TeamService', () => {
   it('expects service to fetch data with the good url and method',
     inject([HttpTestingController, TeamService],
       (httpMock: HttpTestingController, teamService: TeamService) => {
-
         teamService.getTeams(4334).subscribe();
 
         const req = httpMock.expectOne(`${environment.apiUrl}/lookup_all_teams.php?id=4334`);
