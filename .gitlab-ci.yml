@@ -1,7 +1,7 @@
 stages:
   - build
-  - test
   - analysis
+  - test
   - deploy
 
 app:
@@ -15,7 +15,6 @@ app:
     expire_in: 1 day
     paths:
       - dist/
-      - node_modules/
   tags:
     - bluerunner
 
@@ -37,7 +36,6 @@ karma:
   image: trion/ng-cli-karma:latest
   before_script:
     - npm ci
-  allow_failure: false
   script:
     - npm run test:headless
   coverage: '/Lines \W+: (\d+\.\d+)%.*/'
@@ -52,7 +50,6 @@ e2e:
   image: trion/ng-cli-e2e:latest
   before_script:
     - npm ci
-  allow_failure: false
   script:
     - npm run e2e:headless
   tags:
