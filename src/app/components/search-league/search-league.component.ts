@@ -28,6 +28,10 @@ export class SearchLeagueComponent implements OnInit {
    * Initial input value, selected at back action
    */
   initialValue;
+  /**
+   * Element used for sticky
+   */
+  elementToObserve: HTMLElement;
 
   /**
    * Component injections
@@ -55,6 +59,8 @@ export class SearchLeagueComponent implements OnInit {
       this.initialValue = this.leagueService.selectedLeague;
     }
 
+    this.elementToObserve = document.querySelector('.subtitle');
+
     this.addObserverForSearchInput();
   }
 
@@ -73,14 +79,12 @@ export class SearchLeagueComponent implements OnInit {
    * Set the sticky status to search input
    */
   addObserverForSearchInput() {
-    const elementToObserve: HTMLElement = document.querySelector('.subtitle');
-
-    if (elementToObserve) {
+    if (this.elementToObserve) {
       const observer = new IntersectionObserver(entries => {
         this.sticky = !entries[0].isIntersecting;
       });
 
-      observer.observe(elementToObserve);
+      observer.observe(this.elementToObserve);
     }
   }
 }

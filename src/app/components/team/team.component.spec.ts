@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   async,
   ComponentFixture,
-  TestBed
+  TestBed,
+  inject
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
 
 import { TeamComponent } from './team.component';
 
 import { Team } from 'src/interfaces/models/team';
+
+@Component({
+  selector: 'app-host-component',
+  template: '<app-team [team]="team"></app-team>'
+})
+class TestHostComponent {
+  private team: Team = {id: 1111, name: 'team1', badge: ''};
+
+  setTeam(team: Team) {
+    this.team = team;
+  }
+}
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -59,15 +72,16 @@ describe('TeamComponent', () => {
     expect(compiled.querySelector('.team-name').innerText).toEqual('team2');
   });
 
-  @Component({
-    selector: 'app-host-component',
-    template: '<app-team [team]="team"></app-team>'
-  })
-  class TestHostComponent {
-    private team: Team = {id: 1111, name: 'team1', badge: ''};
+  it('should redirect and scroll at team selection',
+    inject([Router],
+      (router: Router) => {
+        const routerSpy = spyOn(router, 'navigate');
+        const windowSpy = spyOn(window, 'scroll');
 
-    setTeam(team: Team) {
-      this.team = team;
-    }
-  }
+        component.loadTeamMembers({id: 4401, name: 'test'});
+        expect(routerSpy).toHaveBeenCalled();
+        expect(windowSpy).toHaveBeenCalled();
+      })
+    )
+  ;
 });

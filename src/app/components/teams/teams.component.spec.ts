@@ -4,6 +4,7 @@ import {
   inject,
   TestBed,
 } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -19,10 +20,13 @@ describe('TeamsComponent', () => {
   let component: TeamsComponent;
   let fixture: ComponentFixture<TeamsComponent>;
 
+  const fakeTeams = [{id: 1111, name: 'test', badge: 'test'}];
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
+        RouterTestingModule,
       ],
       declarations: [
         TeamsComponent,
@@ -45,13 +49,24 @@ describe('TeamsComponent', () => {
   it('should get the teams at selection',
     inject([TeamService, LeagueService],
       (teamService: TeamService, leagueService: LeagueService) => {
-        spyOn(teamService, 'getTeams').and.returnValue(of([{id: 1111, name: 'test', badge: 'test'}]));
+        spyOn(teamService, 'getTeams').and.returnValue(of(fakeTeams));
 
-        leagueService.selectLeague({id: 4401, name: 'test'});
+        leagueService.selectLeague(fakeTeams[0]);
+        expect(component.teams.length).toBe(1);
+      })
+    )
+  ;
 
-        setTimeout(_ => {
-          expect(component.teams.length).toBe(1);
-        }, 1000);
+  it('should load teams if exists on service',
+    inject([TeamService],
+      (teamService: TeamService) => {
+        teamService.teams = fakeTeams;
+
+        fixture = TestBed.createComponent(TeamsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+
+        expect(component.teams.length).toBe(1);
       })
     )
   ;

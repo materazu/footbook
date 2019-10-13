@@ -16,6 +16,8 @@ describe('SearchLeagueComponent', () => {
   let component: SearchLeagueComponent;
   let fixture: ComponentFixture<SearchLeagueComponent>;
 
+  const fakeLeague = {id: 1111, name: 'test'};
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -46,16 +48,36 @@ describe('SearchLeagueComponent', () => {
   it('should get the leagues at startup',
     inject([LeagueService],
       (leagueService: LeagueService) => {
-        spyOn(leagueService, 'getLeagues').and.callFake(() => {
-          leagueService.leaguesReadyEvent.emit([{id: 1111, name: 'test'}]);
-        });
+        component.ngOnInit();
 
-        setTimeout(_ => {
-          expect(component.leagues.length).toBe(1);
-        }, 1000);
+        leagueService.leaguesReadyEvent.emit([fakeLeague]);
+
+        expect(component.leagues.length).toBe(1);
       })
     )
   ;
+
+  it('should load leagues if exists in service',
+    inject([LeagueService],
+      (leagueService: LeagueService) => {
+        leagueService.leagues = [fakeLeague];
+        component.ngOnInit();
+
+        expect(component.leagues.length).toBe(1);
+      }
+    )
+  );
+
+  it('should set initial value for input if league exists in service',
+    inject([LeagueService],
+      (leagueService: LeagueService) => {
+        leagueService.selectedLeague = fakeLeague;
+        component.ngOnInit();
+
+        expect(component.initialValue).toEqual(fakeLeague);
+      }
+    )
+  );
 
   it('should attach the observer on init', () => {
     const spy = spyOn(component, 'addObserverForSearchInput');
@@ -68,7 +90,7 @@ describe('SearchLeagueComponent', () => {
     inject([LeagueService],
       (leagueService: LeagueService) => {
         const spy = spyOn(leagueService, 'selectLeague');
-        component.leagueSelected({id: 1111, name: 'test'});
+        component.leagueSelected(fakeLeague);
 
         expect(spy).toHaveBeenCalled();
       }
