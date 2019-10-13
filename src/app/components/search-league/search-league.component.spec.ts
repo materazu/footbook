@@ -1,11 +1,16 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-
-import { SearchLeagueComponent } from './search-league.component';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import {
+  async,
+  ComponentFixture,
+  inject,
+  TestBed,
+} from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
+import { SearchLeagueComponent } from './search-league.component';
+
 import { LeagueService } from 'src/app/services/league.service';
-import { TeamService } from 'src/app/services/team.service';
 
 describe('SearchLeagueComponent', () => {
   let component: SearchLeagueComponent;

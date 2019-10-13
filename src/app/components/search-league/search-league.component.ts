@@ -44,6 +44,7 @@ export class SearchLeagueComponent implements OnInit {
    */
   leagueSelected(league: League) {
     this.leagueService.selectLeague(league);
+    window.scroll(0, 0);
   }
 
   /**

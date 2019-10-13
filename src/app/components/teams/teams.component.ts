@@ -12,7 +12,7 @@ import { Team } from 'src/interfaces/models/team';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent {
-  teams: Team[] = [];
+  teams: Team[] = null;
 
   /**
    * @param leagueService Service to manage all Leagues

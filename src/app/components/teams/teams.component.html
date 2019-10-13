@@ -1,5 +1,14 @@
 <section
-  *ngIf="teams.length"
+  class="column is-mobile"
+  *ngIf="teams && !teams.length"
+>
+  <div class="notification is-primary">
+    No team found for this league, please choosing another one.
+  </div>
+</section>
+
+<section
+  *ngIf="teams && teams.length"
   class="teams-container columns is-mobile is-multiline"
 >
   <div
