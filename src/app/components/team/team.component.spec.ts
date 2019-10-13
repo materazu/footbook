@@ -1,7 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import {
+  async,
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
 
 import { TeamComponent } from './team.component';
-import { Component } from '@angular/core';
+
 import { Team } from 'src/interfaces/models/team';
 
 describe('TeamComponent', () => {
@@ -39,8 +44,9 @@ describe('TeamComponent', () => {
     testHostFixture = TestBed.createComponent(TestHostComponent);
     testHostComponent = testHostFixture.componentInstance;
     testHostFixture.detectChanges();
+    const compiled = testHostFixture.debugElement.nativeElement;
 
-    expect(testHostFixture.nativeElement.querySelector('.team-name').innerText).toEqual('team1');
+    expect(compiled.querySelector('.team-name').innerText).toEqual('team1');
   });
 
   it('should show different team name, at change of the input', () => {
@@ -48,8 +54,9 @@ describe('TeamComponent', () => {
     testHostComponent = testHostFixture.componentInstance;
     testHostComponent.setTeam({id: 2222, name: 'team2', badge: ''});
     testHostFixture.detectChanges();
+    const compiled = testHostFixture.debugElement.nativeElement;
 
-    expect(testHostFixture.nativeElement.querySelector('.team-name').innerText).toEqual('team2');
+    expect(compiled.querySelector('.team-name').innerText).toEqual('team2');
   });
 
   @Component({

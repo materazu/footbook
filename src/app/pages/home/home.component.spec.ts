@@ -1,11 +1,12 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 import { HomeComponent } from './home.component';
 import { TeamsComponent } from 'src/app/components/teams/teams.component';
 import { TeamComponent } from 'src/app/components/team/team.component';
 import { SearchLeagueComponent } from 'src/app/components/search-league/search-league.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
