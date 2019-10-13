@@ -16,7 +16,7 @@ import { SearchAllLeagues } from 'src/interfaces/api-responses/search-all-league
 import { environment } from 'src/environments/environment';
 
 /**
- * Get leagues and provide a way to find them
+ * Handle the leagues
  */
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,8 @@ export class LeagueService implements ApiContract {
   leagueSelectedEvent = new EventEmitter();
 
   endPoint: string;
-  scope = 'search_all_leagues.php';
   leagues: League[];
+  scope = 'search_all_leagues.php';
 
   /**
    * @param httpClient Http client from Angular
@@ -39,7 +39,7 @@ export class LeagueService implements ApiContract {
   }
 
   /**
-   * Get leagues from the api and rebuild/clear the collection
+   * Get leagues from the api and rebuild/clean the collection
    */
   getLeagues() {
     let params = new HttpParams();

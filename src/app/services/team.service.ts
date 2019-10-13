@@ -1,14 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpParams,
+} from '@angular/common/http';
 
-import { map, mergeMap, toArray, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import {
+  map,
+  mergeMap,
+  toArray,
+} from 'rxjs/operators';
 
 import { ApiContract } from 'src/interfaces/contracts/api.contract';
-import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+
 import { Team } from 'src/interfaces/models/team';
+
 import { LookupAllTeams } from 'src/interfaces/api-responses/lookup-all-teams';
 
+import { environment } from 'src/environments/environment';
+
+/**
+ * Handle the teams
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +30,20 @@ export class TeamService implements ApiContract {
   scope = 'lookup_all_teams.php';
   teams: Team[];
 
+  /**
+   * @param httpClient Http client from Angular
+   */
   constructor(
     private httpClient: HttpClient
   ) {
     this.endPoint = `${environment.apiUrl}/${this.scope}`;
   }
 
+  /**
+   * Get teams from the api and rebuild to an array of Team object
+   *
+   * @param id League identifier
+   */
   getTeams(id: number): Observable<Team[]> {
     let params = new HttpParams();
     params = params.append('id', id.toString());
