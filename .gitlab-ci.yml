@@ -1,7 +1,7 @@
 stages:
-  - build
-  - test
   - analysis
+  - test
+  - build
   - deploy
 
 app:
@@ -90,3 +90,5 @@ firebase:
     - npm run build:prod
     - firebase use --token $FIREBASE_DEPLOY_KEY default
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
+  tags:
+    - bluerunner
