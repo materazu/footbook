@@ -7,7 +7,7 @@ stages:
 cache:
   key: "PIPELINE-$CI_PIPELINE_ID"
   paths:
-  - node_modules/
+    - node_modules/
 
 app:
   stage: build
