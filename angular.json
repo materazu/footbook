@@ -26,8 +26,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "manifest.json",
-              "pwabuilder-sw.js"
+              "src/manifest.json",
+              "src/pwabuilder-sw.js"
             ],
             "styles": [
               "node_modules/bulma/css/bulma.min.css",
