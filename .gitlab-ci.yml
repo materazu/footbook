@@ -4,12 +4,6 @@ stages:
   - analysis
   - deploy
 
-# Cache modules in between jobs
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-  - node_modules/
-
 app:
   stage: build
   image: trion/ng-cli:latest
@@ -21,6 +15,10 @@ app:
     expire_in: 1 day
     paths:
       - dist/
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - node_modules/
   tags:
     - bluerunner
 
