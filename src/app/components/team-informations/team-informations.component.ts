@@ -23,6 +23,9 @@ export class TeamInformationsComponent implements OnInit {
   /** social links of the team */
   socialLinks: {linkUrl: string, cssClass: string}[] = [];
 
+  /**
+   * LifeCycle Hook at start of component
+   */
   ngOnInit() {
     this.createSociaLinks();
   }
@@ -43,23 +46,21 @@ export class TeamInformationsComponent implements OnInit {
       ;
       const linkUrl = this.teamInformations[key];
 
-      if (!linkUrl) {
-        return;
+      if (linkUrl) {
+        const httpPrefix = linkUrl.startsWith('http')
+          ? null
+          : 'http://'
+        ;
+        const fontAwesomeScope = 'link' === socialProperty
+          ? 'fas'
+          : 'fab'
+        ;
+
+        this.socialLinks.push({
+          linkUrl: `${httpPrefix}${linkUrl}`,
+          cssClass: `${fontAwesomeScope} fa-${socialProperty} fa-3x`
+        });
       }
-
-      const httpPrefix = linkUrl.startsWith('http')
-        ? null
-        : 'http://'
-      ;
-      const fontAwesomeScope = 'link' === socialProperty
-        ? 'fas'
-        : 'fab'
-      ;
-
-      this.socialLinks.push({
-        linkUrl: `${httpPrefix}${linkUrl}`,
-        cssClass: `${fontAwesomeScope} fa-${socialProperty} fa-3x`
-      });
     });
   }
 }
