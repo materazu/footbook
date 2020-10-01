@@ -1,5 +1,5 @@
 import {
-  async,
+  waitForAsync,
   ComponentFixture,
   inject,
   TestBed,
@@ -18,7 +18,7 @@ describe('SearchLeagueComponent', () => {
 
   const fakeLeague = {id: 1111, name: 'test'};
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         AutocompleteLibModule,

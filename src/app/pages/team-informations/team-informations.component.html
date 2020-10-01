@@ -1,0 +1,26 @@
+<section class="column is-mobile">
+  <button
+    class="button is-outlined"
+    [routerLink]="['/']"
+  >
+    Back
+  </button>
+</section>
+
+<section class="column is-mobile">
+  <div
+    *ngIf="teamInformations;
+    then thenTemplate
+    else elseTemplate
+  "></div>
+</section>
+
+<ng-template #thenTemplate>
+  <app-team-informations [teamInformations]="teamInformations"></app-team-informations>
+</ng-template>
+
+<ng-template #elseTemplate>
+  <div class="notification is-primary">
+    No player found for this team, please choosing another one.
+  </div>
+</ng-template>

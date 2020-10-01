@@ -7,12 +7,13 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
 import { SearchLeagueComponent } from './components/search-league/search-league.component';
-import { TeamsComponent } from './components/teams/teams.component';
 import { TeamComponent } from './components/team/team.component';
-import { TeamMembersComponent } from './pages/team-members/team-members.component';
-import { TeamMemberComponent } from './components/team-member/team-member.component';
+import { TeamInformationsComponent } from './components/team-informations/team-informations.component';
+import { TeamsComponent } from './components/teams/teams.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { TeamInformationsComponent as TeamPage } from './pages/team-informations/team-informations.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import { TeamMemberComponent } from './components/team-member/team-member.compon
     SearchLeagueComponent,
     TeamsComponent,
     TeamComponent,
-    TeamMembersComponent,
-    TeamMemberComponent,
+    TeamPage,
+    TeamInformationsComponent,
   ],
   imports: [
     AppRoutingModule,

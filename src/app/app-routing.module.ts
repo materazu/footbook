@@ -5,14 +5,23 @@ import {
 } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { TeamInformationsComponent } from './pages/team-informations/team-informations.component';
 
-import { TeamMembersResolver } from './resolvers/team-member.resolver';
-import { TeamMembersComponent } from './pages/team-members/team-members.component';
+import { TeamInformationsResolver } from './resolvers/team-informations.resolver';
 
 /* istanbul ignore next */
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'team/:teamId', component: TeamMembersComponent, resolve: {teamMembers: TeamMembersResolver} },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'team/:teamId',
+    component: TeamInformationsComponent,
+    resolve: {
+      teamInformations: TeamInformationsResolver
+    }
+  },
 ];
 
 @NgModule({

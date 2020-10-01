@@ -28,7 +28,7 @@ export class AppPage {
 
   sendSearchInSearchField() {
     const inputElement = element(by.css('.input-container input'));
-    inputElement.sendKeys('ligue');
+    inputElement.sendKeys('albanian');
   }
 
   getFirstSuggestionResult() {
@@ -45,15 +45,15 @@ export class AppPage {
   }
 
   getFirstTeamName() {
-    return element(by.css('.card:first-child .team-name')).getText() as Promise<string>;
+    return element.all(by.css('.card:first-child .team-name')).first().getText() as Promise<string>;
   }
 
   getFirstTeamPicture() {
-    return element(by.css('.card:first-child .image img')).getAttribute('src') as Promise<string>;
+    return element.all(by.css('.card:first-child .image img')).first().getAttribute('src') as Promise<string>;
   }
 
   selectTeamInResult() {
-    const teamElement = element(by.css('.card:first-child'));
+    const teamElement = element.all(by.css('.card')).first();
     teamElement.click();
   }
 
@@ -79,5 +79,29 @@ export class AppPage {
 
   getMemberPicture(child) {
     return element(by.css(`.column:nth-child(${child}) .image img`)).getAttribute('src') as Promise<string>;
+  }
+
+  getTeamPicture() {
+    return element(by.css('.banner')).getAttribute('src') as Promise<string>;
+  }
+
+  getTeamName() {
+    return element(by.css('.team-name')).getText() as Promise<string>;
+  }
+
+  getTeamLeague() {
+    return element(by.css('.league-name')).getText() as Promise<string>;
+  }
+
+  getTeamDescription() {
+    return element(by.css('.description')).getText() as Promise<string>;
+  }
+
+  getTeamSocialLinksResults() {
+    return element.all(by.css('.social-link')).count() as Promise<number>;
+  }
+
+  getTeamLinkUrl() {
+    return element(by.css('.social-link')).getAttribute('href') as Promise<string>;
   }
 }

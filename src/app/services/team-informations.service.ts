@@ -13,26 +13,27 @@ import {
 
 import { ApiContract } from 'src/interfaces/contracts/api.contract';
 
-import { TeamMember } from 'src/interfaces/models/team-member';
+import { TeamInformations } from 'src/interfaces/models/team-informations';
 
-import { LookupAllPlayers } from 'src/interfaces/api-responses/lookup-all-players';
+import { LookupTeam } from 'src/interfaces/api-responses/lookup-team';
 
 import { environment } from 'src/environments/environment';
 
 /**
  * Handle the teams
- *
- * @deprecated due to Patreon, require a key to be used
  */
 @Injectable({
   providedIn: 'root'
 })
-export class TeamMemberService implements ApiContract {
-  /** Endpoint api url */
+export class TeamInformationsService implements ApiContract {
+  /**
+   * Endpoint api url
+   */
   endPoint: string;
-
-  /** Scope of service */
-  scope = 'lookup_all_players.php';
+  /**
+   * Scope of service
+   */
+  scope = 'lookupteam.php';
 
   /**
    * Service injections
@@ -50,25 +51,28 @@ export class TeamMemberService implements ApiContract {
    *
    * @param id Team identifier
    */
-  getTeamMembers(id: number): Observable<TeamMember[]> {
+  getTeamInformations(id: number): Observable<TeamInformations> {
     let params = new HttpParams();
     params = params.append('id', id.toString());
 
     return this.httpClient
-      .get<LookupAllPlayers>(this.endPoint, {params})
+      .get<LookupTeam>(this.endPoint, { params })
       .pipe(
-        mergeMap(result => result.player || []),
+        map(result => result.teams[0]),
         map(result => {
           return {
-            id: parseInt(result.idPlayer, 0),
-            name: result.strPlayer,
-            price: result.strSigning,
-            position: result.strPosition,
-            picture: result.strCutout,
-            birthDate: new Date(result.dateBorn)
+            id: +result.idTeam,
+            name: result.strTeam,
+            badge: result.strTeamBadge,
+            banner: result.strTeamBanner,
+            description: result.strDescriptionEN,
+            website: result.strWebsite,
+            facebook: result.strFacebook,
+            twitter: result.strTwitter,
+            instagram: result.strInstagram,
+            league: result.strLeague,
           };
-        }),
-        toArray()
+        })
       )
     ;
   }

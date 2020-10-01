@@ -15,9 +15,7 @@ import { Team } from 'src/interfaces/models/team';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent {
-  /**
-   * Teams array
-   */
+  /** Teams array */
   teams: Team[] = null;
 
   /**
@@ -36,9 +34,12 @@ export class TeamsComponent {
       this.teams = this.teamService.teams;
     }
 
-    this.leagueService.leagueSelectedEvent.subscribe((league: League) => {
-      this.getAllTeamsForLeague(league.id);
-    });
+    this.leagueService
+      .leagueSelectedEvent
+      .subscribe((league: League) => {
+        this.getAllTeamsForLeague(league.id);
+      })
+    ;
   }
 
   /**
@@ -47,9 +48,12 @@ export class TeamsComponent {
    * @param $event league object selected by user
    */
   getAllTeamsForLeague(leagueId: number) {
-    this.teamService.getTeams(leagueId).subscribe(teams => {
-      this.teams = teams;
-      this.teamService.teams = teams;
-    });
+    this.teamService
+      .getTeams(leagueId)
+      .subscribe(teams => {
+        this.teams = teams;
+        this.teamService.teams = teams;
+      })
+    ;
   }
 }

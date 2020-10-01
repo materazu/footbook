@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
 } from '@angular/core';
@@ -12,12 +13,11 @@ import { Team } from 'src/interfaces/models/team';
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss']
+  styleUrls: ['./team.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamComponent {
-  /**
-   * Team input to passing object to component
-   */
+  /** Team input to passing object to component */
   @Input() team: Team;
 
   /**
@@ -30,11 +30,11 @@ export class TeamComponent {
   ) { }
 
   /**
-   * Navigate to the members of team page
+   * Navigate to the informtion of team page
    *
    * @param teamId team identifier
    */
-  loadTeamMembers(teamId) {
+  loadTeamInformations(teamId) {
     this.router.navigate(['team', teamId]);
     window.scroll(0, 0);
   }

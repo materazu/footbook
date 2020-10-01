@@ -5,18 +5,18 @@ import {
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { TeamMembersComponent } from './team-members.component';
-import { TeamMemberComponent } from 'src/app/components/team-member/team-member.component';
+import { TeamInformationsComponent as TeamPage } from './team-informations.component';
+import { TeamInformationsComponent } from './../../components/team-informations/team-informations.component';
 
 describe('TeamMembersComponent', () => {
-  let component: TeamMembersComponent;
-  let fixture: ComponentFixture<TeamMembersComponent>;
+  let component: TeamPage;
+  let fixture: ComponentFixture<TeamPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TeamMembersComponent,
-        TeamMemberComponent,
+        TeamPage,
+        TeamInformationsComponent,
       ],
       imports: [
         RouterTestingModule
@@ -26,7 +26,7 @@ describe('TeamMembersComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamMembersComponent);
+    fixture = TestBed.createComponent(TeamPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

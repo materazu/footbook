@@ -7,17 +7,13 @@ export interface LookupAllTeams {
    */
   teams: [
     {
-      /**
-       * unique identifier
-       */
+      /** unique identifier */
       idTeam: string,
-      /**
-       * name of team
-       */
+
+      /** name of team */
       strTeam: string,
-      /**
-       * badge of team
-       */
+
+      /** badge of team */
       strTeamBadge: string,
     }
   ];

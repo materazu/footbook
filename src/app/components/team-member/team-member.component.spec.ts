@@ -1,5 +1,5 @@
 import {
-  async,
+  waitForAsync,
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
@@ -10,7 +10,7 @@ describe('TeamMemberComponent', () => {
   let component: TeamMemberComponent;
   let fixture: ComponentFixture<TeamMemberComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         TeamMemberComponent,

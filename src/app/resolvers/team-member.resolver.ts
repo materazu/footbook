@@ -12,6 +12,8 @@ import { TeamMember } from 'src/interfaces/models/team-member';
 
 /**
  * Resolver who find all team members and give it through routing
+ *
+ * @deprecated due to Patreon, require a key to be used
  */
 @Injectable({
   providedIn: 'root'

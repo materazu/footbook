@@ -22,30 +22,22 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LeagueService implements ApiContract {
-  /**
-   * Event called when array of leagues response from api is ready
-   */
+  /** Event called when array of leagues response from api is ready */
   leaguesReadyEvent = new EventEmitter();
-  /**
-   * Event called when a league is selected by a user
-   */
+
+  /** Event called when a league is selected by a user */
   leagueSelectedEvent = new EventEmitter();
 
-  /**
-   * Endpoint api url
-   */
+  /** Endpoint api url */
   endPoint: string;
-  /**
-   * Leagues array
-   */
+
+  /** Leagues array */
   leagues: League[] = [];
-  /**
-   * League selected by user
-   */
+
+  /** League selected by user */
   selectedLeague: League;
-  /**
-   * Scope of service
-   */
+
+  /**  Scope of service */
   scope = 'search_all_leagues.php';
 
   /**
@@ -64,8 +56,9 @@ export class LeagueService implements ApiContract {
    */
   getLeagues() {
     let params = new HttpParams();
-    /* if we need to scope to a country*/
+    // if we need to scope to a country
     // params = params.append('c', environment.country);
+
     params = params.append('s', environment.sportScope);
 
     this.httpClient

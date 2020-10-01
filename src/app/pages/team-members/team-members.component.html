@@ -1,20 +1,27 @@
-<section
-  *ngIf="teamMembers && !teamMembers.length"
-  class="column is-mobile"
->
-  <div class="notification is-primary">
-    No player found for this team, please choosing another one.
-  </div>
+<section class="column is-mobile">
+  <button
+    class="button is-outlined"
+    [routerLink]="['/']"
+  >Back</button>
 </section>
 
-<section
-  *ngIf="teamMembers && teamMembers.length"
-  class="team-members-container columns is-mobile is-multiline"
->
-  <div
-    *ngFor="let member of teamMembers"
-    class="column is-full"
-  >
-    <app-team-member [member]="member"></app-team-member>
-  </div>
-</section>
+<div *ngIf="teamMembers && !teamMembers.length; then thenTemplate else elseTemplate"></div>
+
+<ng-template #thenTemplate>
+  <section class="column is-mobile">
+    <div class="notification is-primary">
+      No player found for this team, please choosing another one.
+    </div>
+  </section>
+</ng-template>
+
+<ng-template #elseTemplate>
+  <section class="team-members-container columns is-mobile is-multiline">
+    <div
+      *ngFor="let member of teamMembers"
+      class="column is-full"
+    >
+      <app-team-member [member]="member"></app-team-member>
+    </div>
+  </section>
+</ng-template>

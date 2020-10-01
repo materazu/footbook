@@ -25,5 +25,10 @@ Run `npm run e2e` to execute the end-to-end tests via [Protractor](http://www.pr
 Headless version for running end-to-end tests can be executed with `npm run e2e:headless`.
 
 ## Testing the ci
+
 This project run under gitlab-ci and chain all test, lint and build stages. It is recommended to run locally `npm run before:push` before pushing on master.
 It will emulate the pipeline and make sure all is ok and pipeline will not fail. 
+
+## Country scoping
+
+For tests, country scoping is not activated, you can uncomment the L.60 in file `src/app/services/league.service.ts` to choose a scope for country, exposed as `France` by default in `src/environments/environment.ts`.

@@ -127,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "footbook"
+    }
+  },
+  "defaultProject": "footbook",
+  "cli": {
+    "analytics": "0a19b74d-dc68-476e-bcc8-58ccd1df75a0"
+  }
 }

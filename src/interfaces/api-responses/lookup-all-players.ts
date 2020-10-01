@@ -1,5 +1,7 @@
 /**
  * Response from https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php
+ *
+ * @deprecated due to Patreon, require a key to be used
  */
 export interface LookupAllPlayers {
   /**
@@ -7,29 +9,22 @@ export interface LookupAllPlayers {
    */
   player: [
     {
-      /**
-       * unique identifier
-       */
+      /** unique identifier */
       idPlayer: string,
-      /**
-       * player name
-       */
+
+      /** player name */
       strPlayer: string,
-      /**
-       * player cost
-       */
+
+      /** player cost */
       strSigning: string,
-      /**
-       * player position
-       */
+
+      /** player position */
       strPosition: string,
-      /**
-       * player picture
-       */
+
+      /** player picture */
       strCutout: string,
-      /**
-       * player date of birth
-       */
+
+      /** player date of birth */
       dateBorn: string,
     }
   ];

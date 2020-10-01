@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-  async,
+  waitForAsync,
   ComponentFixture,
   TestBed,
   inject
@@ -30,7 +30,7 @@ describe('TeamComponent', () => {
   let testHostComponent: TestHostComponent;
   let testHostFixture: ComponentFixture<TestHostComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         TeamComponent,
@@ -78,7 +78,18 @@ describe('TeamComponent', () => {
         const routerSpy = spyOn(router, 'navigate');
         const windowSpy = spyOn(window, 'scroll');
 
-        component.loadTeamMembers({id: 4401, name: 'test'});
+        component.loadTeamInformations({
+          badge: 'https://www.thesportsdb.com/images/media/team/badge/qwvtvt1473504800.png',
+          banner: 'https://www.thesportsdb.com/images/media/team/banner/wwuxuq1420595615.jpg',
+          description: `Olympique Gymnaste Club Nice Côte d'Azur (commonly referred to as OGC Nice or simply Nice)`,
+          facebook: 'www.facebook.com/ogcnice',
+          id: 133712,
+          instagram: '',
+          league: 'French Ligue 1',
+          name: 'Nice',
+          twitter: 'twitter.com/ogcnice',
+          website: 'www.ogcnice.com',
+        });
         expect(routerSpy).toHaveBeenCalled();
         expect(windowSpy).toHaveBeenCalled();
       })

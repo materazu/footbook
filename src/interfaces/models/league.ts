@@ -2,12 +2,9 @@
  * Represent a league
  */
 export interface League {
-  /**
-   * unique identifier
-   */
+  /** unique identifier */
   id: number;
-  /**
-   * name of the league
-   */
+
+  /** name of the league */
   name: string;
 }

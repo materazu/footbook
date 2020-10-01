@@ -1,5 +1,5 @@
 import {
-  async,
+  waitForAsync,
   ComponentFixture,
   inject,
   TestBed,
@@ -22,7 +22,7 @@ describe('TeamsComponent', () => {
 
   const fakeTeams = [{id: 1111, name: 'test', badge: 'test'}];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,

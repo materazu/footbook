@@ -1,0 +1,40 @@
+<div
+  *ngIf="teamInformations"
+>
+  <div class="has-text-centered">
+    <img
+      class="banner"
+      [src]="teamInformations.banner || teamInformations.badge"
+    >
+  </div>
+  <em>
+    <i class="fas fa-futbol"></i>
+    <span class="team-name">{{ teamInformations.name }}</span>
+    <br>
+    <i class="fas fa-flag"></i>
+  <span class="league-name">League: {{ teamInformations.league }}</span>
+  </em>
+  <p class="description">
+    {{ teamInformations.description }}
+  </p>
+
+  <h1>
+    <i class="fas fa-thumbs-up"></i>
+    Follow your team
+  </h1>
+
+  <div class="columns is-mobile is-centered">
+    <div
+      class="column has-text-centered"
+      *ngFor="let socialLink of socialLinks"
+    >
+      <a
+        [href]="socialLink.linkUrl"
+        class="icon is-large social-link"
+        target="_blank"
+      >
+        <i [class]="socialLink.cssClass"></i>
+      </a>
+    </div>
+  </div>
+</div>

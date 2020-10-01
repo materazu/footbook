@@ -16,21 +16,16 @@ import { League } from 'src/interfaces/models/league';
   styleUrls: ['./search-league.component.scss']
 })
 export class SearchLeagueComponent implements OnInit {
-  /**
-   * Leagues array
-   */
+  /** Leagues array */
   leagues: League[];
-  /**
-   * Sticky status for the input
-   */
+
+  /** Sticky status for the input */
   sticky: boolean;
-  /**
-   * Initial input value, selected at back action
-   */
+
+  /** Initial input value, selected at back action */
   initialValue;
-  /**
-   * Element used for sticky
-   */
+
+  /** Element used for sticky */
   elementToObserve: HTMLElement;
 
   /**

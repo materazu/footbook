@@ -7,13 +7,10 @@ export interface SearchAllLeagues {
    */
   countrys: [
     {
-      /**
-       * unique identifier
-       */
+      /** unique identifier */
       idLeague: string,
-      /**
-       * name of the league
-       */
+
+      /** name of the league */
       strLeague: string
     }
   ];
